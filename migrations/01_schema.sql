@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS properties CASCADE;
 DROP TABLE IF EXISTS reservations CASCADE;
+DROP TABLE IF EXISTS property_reviews CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -34,4 +35,13 @@ CREATE TABLE reservations (
   end_date DATE,
   property_id INTEGER,
   guest_id INTEGER
+);
+
+CREATE TABLE property_reviews (
+  id SERIAL PRIMARY KEY NOT NULL,
+  guest_id INTEGER,
+  property_id INTEGER,
+  reservation_id INTEGER,
+  rating SMALLINT,
+  message TEXT
 );
